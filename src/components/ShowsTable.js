@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { fetchAll } from "../api"
+import GenreRow from "./GenreRow"
 
 export const ShowsTable = () => {
     const [shows, setShows] = useState([])
     useEffect(() => {
-        fetchAll().then(function (response) {
-            console.log({ response })
-            setShows(response.data)
-        }).catch(function (error) {
-            console.log(error);
-        });
+        (async () => {
+            const fetchedShows = await fetchAll();
+            setShows(fetchedShows);
+        })();
     }, [])
-    console.log({ shows })
-    return (shows.length && <div>shows table</div>)
+    return shows.length && (
+        <div>
+            {shows.map((genre) => (
+                <GenreRow key={genre.genre} data={genre} />
+            ))}
+        </div>
+
+    );
 }
 export default ShowsTable;
