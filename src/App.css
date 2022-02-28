@@ -1,8 +1,7 @@
-
-.showBox {
-    display: inline-block;
-    padding: 2px 8px;
-}
+.App {padding: 30px;}
+.showBox {display: inline-block;padding: 2px 8px;}
 .GenreTitle{font-size: 1.6rem;padding-left:8px}
 .showBox img {height: 240px;}
 .genreRow {    margin: 0px 35px;white-space: nowrap;}
+.halfScreen {display :inline-block;width: calc(50% - 20px);min-width:300px;margin:auto;vertical-align:top;padding:10px;}
+.singleShow img {width:100%}

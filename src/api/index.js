@@ -10,6 +10,15 @@ export const fetchAll = async () => {
     const formattedData = formatShows(data)
     return formattedData;
 }
+export const fetchShow = async (id) => {
+    const { data } = await axios.get(`https://api.tvmaze.com/shows/${id}`)
+        .then(function (response) {
+            return response
+        }).catch(function (error) {
+            console.log(error);
+        });
+    return data;
+}
 const formatShows = (data) => {
     const genres = data.map(item => item.genres)
     let uniqueGenres = [...new Set(genres.flat())]
